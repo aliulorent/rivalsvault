@@ -4,5 +4,5 @@ export default defineEventHandler(async (event)=>{
         "SELECT * FROM characters",
     )
     .all();
-    return results;
+    return results
 })

@@ -6,6 +6,10 @@ export default defineNuxtConfig({
   nitro: {
     preset: "cloudflare-pages"
   },
-
-  modules: ["nitro-cloudflare-dev"]
+  image: {
+    cloudflare: {
+      baseURL: 'https://pub-7a06cbd97379439d8b7b3f390b203724.r2.dev'
+    }
+  },
+  modules: ["nitro-cloudflare-dev", "@nuxt/image"]
 })

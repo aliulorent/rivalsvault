@@ -12,6 +12,7 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@nuxt/image": "^1.9.0",
     "nuxt": "^3.15.2",
     "vue": "latest",
     "vue-router": "latest"
