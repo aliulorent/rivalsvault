@@ -11,5 +11,5 @@ export default defineNuxtConfig({
       baseURL: 'https://pub-7a06cbd97379439d8b7b3f390b203724.r2.dev'
     }
   },
-  modules: ["nitro-cloudflare-dev", "@nuxt/image"]
+  modules: ["nitro-cloudflare-dev", "@nuxt/image", "@nuxtjs/tailwindcss"]
 })
