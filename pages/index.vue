@@ -2,12 +2,11 @@
 const {data} = await useFetch('/api/d1')
 </script>
 <template>
-  <div>
+  <div class="bg-slate-200">
     <NuxtRouteAnnouncer />
     <h1>Hello Cloudflare!</h1>
-    <div v-for="char in data" >
-        <h3>{{ char.name }}</h3>
-        <NuxtImg provider="cloudflare" :src="char.bg_path" loading="lazy"/>
+    <div class="flex flex-wrap">
+      <HeroSelect v-for="entry in data" :char="entry"/>
     </div>
   </div>
 </template>
