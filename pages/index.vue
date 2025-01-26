@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const {data} = await useFetch('/api/d1')
+const {data} = await useFetch('/api/characters')
 </script>
 <template>
   <div class="bg-slate-200">
