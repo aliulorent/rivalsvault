@@ -10,17 +10,11 @@ const goToHero = () =>{
 <template>
     <!-- CHARACTER BANNER FOR EACH HERO. MOST PICTURES ARE ABSOLUTE POSITIONING -->
     <div class="hero-container relative w-[244px] h-[440px] overflow-hidden p-0 m-4" @click="goToHero">
-        <h3 class="hero-name absolute bottom-16 left-2 z-40 text-center font-bold text-white">{{ char.name }}</h3>
+        <h3 class="hero-name absolute bottom-16 left-2 z-40 text-center font-bold text-white">{{ char.hero_name }}</h3>
         <NuxtImg provider="cloudflare" :src="`/common/bannershadow.webp`" loading="lazy" class="text-shadow absolute bottom-0 z-30 w-[244px] h-[184px] -mb-[2px]"/>
-        <NuxtImg provider="cloudflare" :src="char.image_path" loading="lazy" class="hero-img absolute object-cover w-[540px] h-[540px] overflow-clip top-0 left-0 right-0 mx-auto z-20"/>
+        <NuxtImg provider="cloudflare" :src="`/fullbody/${char.hero_id}.webp`" loading="lazy" class="hero-img absolute object-cover w-[540px] h-[540px] overflow-clip top-0 left-0 right-0 mx-auto z-20"/>
         <NuxtImg provider="cloudflare" :src="'/common/staticbg.webp'" loading="lazy" class="static-bg absolute top-0 left-0 z-10 w-[244px] h-[440px]"/>
     </div>
-    <!-- <div class="hover-container relative w-[544px] h-[544px] overflow-hidden p-0 m-4">
-        <NuxtImg provider="cloudflare" :src="char.image_path" loading="lazy" class="hero-img-hover absolute object-cover w-[540px] h-[540px] overflow-clip top-0 left-0 right-0 mx-auto z-40"/>
-        <NuxtImg provider="cloudflare" :src="`/common/hoverbg.webp`" loading="lazy" class="absolute z-30 top-0 left-0 right-0 mx-auto w-[544px] h-[544px]"/>
-        <NuxtImg provider="cloudflare" :src="`/common/hoverwhite.webp`" loading="lazy" class="absolute z-20 top-0 left-0 right-0 mx-auto w-[544px] h-[544px]"/>
-        <NuxtImg provider="cloudflare" :src="`/common/hoveroutline.webp`" loading="lazy" class="absolute z-10 top-0 left-0 right-0 mx-auto w-[544px] h-[544px]"/>
-    </div> -->
 </template>
 <style>
 .hero-container{

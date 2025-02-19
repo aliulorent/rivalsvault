@@ -1,10 +1,11 @@
 <script setup lang="ts">
-const {data} = await useFetch('/api/characters')
+const {data} = await useFetch('/api/characters',{
+  method: "get"
+})
 </script>
 <template>
-  <div class="bg-slate-200">
-    <NuxtRouteAnnouncer />
-    <h1>Hello Cloudflare!</h1>
+  <div class="bg-slate-900">
+    <!-- <NuxtRouteAnnouncer /> -->
     <div class="flex flex-wrap">
       <HeroSelect v-for="entry in data" :char="entry"/>
     </div>
