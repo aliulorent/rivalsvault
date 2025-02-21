@@ -2,7 +2,13 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-
+  css: ['~/assets/main.css'],
+  googleFonts:{
+    families:{
+      "Nunito Sans": true,
+      Teko: [400],
+    }
+  }, 
   nitro: {
     preset: "cloudflare-pages"
   },
@@ -27,5 +33,10 @@ export default defineNuxtConfig({
       }
     }
   },
-  modules: ["nitro-cloudflare-dev", "@nuxt/image", "@nuxtjs/tailwindcss"]
+  modules: [
+    "nitro-cloudflare-dev",
+    "@nuxt/image",
+    "@nuxtjs/tailwindcss",
+    '@nuxtjs/google-fonts'
+  ]
 })

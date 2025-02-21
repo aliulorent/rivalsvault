@@ -9,8 +9,8 @@ const goToHero = () =>{
 </script>
 <template>
     <!-- CHARACTER BANNER FOR EACH HERO. MOST PICTURES ARE ABSOLUTE POSITIONING -->
-    <div class="hero-container relative w-[244px] h-[440px] overflow-hidden p-0 m-4" @click="goToHero">
-        <h3 class="hero-name absolute bottom-16 left-2 z-40 text-center font-bold text-white">{{ char.hero_name }}</h3>
+    <div class="hero-container relative w-[244px] h-[440px] overflow-hidden p-0 m-4 cursor-pointer" @click="goToHero">
+        <h3 class="hero-name absolute bottom-16 left-3 z-40 text-center text-white font-[Teko] font-[400] text-3xl">{{ char.hero_name }}</h3>
         <NuxtImg provider="cloudflare" :src="`/common/bannershadow.webp`" loading="lazy" class="text-shadow absolute bottom-0 z-30 w-[244px] h-[184px] -mb-[2px]"/>
         <NuxtImg provider="cloudflare" :src="`/fullbody/${char.hero_id}.webp`" loading="lazy" class="hero-img absolute object-cover w-[540px] h-[540px] overflow-clip top-0 left-0 right-0 mx-auto z-20"/>
         <NuxtImg provider="cloudflare" :src="'/common/staticbg.webp'" loading="lazy" class="static-bg absolute top-0 left-0 z-10 w-[244px] h-[440px]"/>

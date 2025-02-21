@@ -12,7 +12,10 @@ definePageMeta({
     })
 </script>
 <template>
-    <div v-if="data && data.length>0">
-        <SkinSelect :skins="data"/>
-    </div>
+    <!-- <div v-if="data && data.length>0" class="skins-container h-screen pt-14 flex justify-center items-center"> -->
+        <SkinSelect v-if="data && data.length>0" :skins="data"/>
+    <!-- </div> -->
 </template>
+<style>
+
+</style>
