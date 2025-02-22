@@ -21,7 +21,7 @@ const goToHero = () =>{
     clip-path: polygon(0 27px, 242px 0%, 242px 412px, 0% 440px);
 }
 .hero-container:hover .hero-img{
-    transform: scale(1.05);
+    transform: scale(1.03);
     transition-duration: 200ms;
     transition-timing-function: ease-in-out;
 }
