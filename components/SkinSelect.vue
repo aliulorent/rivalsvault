@@ -12,14 +12,26 @@ const colorMap = {
 const handleSelect = (index: number | null) =>{
     if(index!=null){
         selected.value = skins[index];
+        useRouter().push({query:{"skin":skins[index].skin_id}});
     }
     else{
         selected.value = null;
+        useRouter().push({query:{}});
     }
     selectedIndex.value = index;
 }
 const selectedCol = "bg-slate-800";
 const notSelectedCol = "bg-slate-900/50";
+
+const handleUrlQuery = ()=>{
+    const skinUrl = useRoute().query.skin;
+    if(skinUrl){
+        const urlIndex = skins.findIndex(skin => skin.skin_id == skinUrl);
+        selectedIndex.value = urlIndex;
+        selected.value = skins[urlIndex];
+    }
+}
+handleUrlQuery();
 </script>
 <template>
 <div class="h-dvh pt-14 flex justify-center items-center relative select-none">
