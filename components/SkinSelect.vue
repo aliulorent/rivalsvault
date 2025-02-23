@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const runtime = useRuntimeConfig();
 const { skins } = defineProps(['skins']);
 const selected = ref();
 const selectedIndex = ref();
@@ -31,6 +32,7 @@ const handleUrlQuery = ()=>{
         selected.value = skins[urlIndex];
     }
 }
+
 handleUrlQuery();
 </script>
 <template>
@@ -51,8 +53,8 @@ handleUrlQuery();
         </div>
         <!-- SELECTED SKIN -->
         <div class="flex flex-col items-start bg-slate-800 text-white w-[50%] max-w-[684px] max-h-screen rounded-r-md z-20">
-            <NuxtImg v-if="selected" provider="cloudflare" :src="`/skins/fullbody/${selected.hero_id}${selected.skin_id}.webp`" draggable="false" class="w-full"/>
-            <NuxtImg v-else  provider="cloudflare" :src="`/fullbody/${skins[0].hero_id}.webp`" draggable="false" class="w-full"/>
+            <NuxtImg v-if="selected" :src="`${runtime.public.cloudflare}/skins/fullbody/${selected.hero_id}${selected.skin_id}.webp`" width="684" height="684" draggable="false" class="w-full" loading="eager"/>
+            <NuxtImg v-else  :src="`${runtime.public.cloudflare}/fullbody/${skins[0].hero_id}.webp`" width="684" height="684" draggable="false" class="w-full" loading="eager"/>
             <hr>
             <div class="flex text-4xl font-[Teko] uppercase items-center px-4 mt-2">
                 <NuxtImg v-if="selected" provider="cloudflare" :src="`/common/rarity${selected.rarity}.webp`"/>
