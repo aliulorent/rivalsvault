@@ -41,7 +41,7 @@ handleUrlQuery();
     <!-- <NuxtImg provider="cloudflare" :src="`/logo/${skins[0].hero_id}.webp`" draggable="false" class="absolute right-0 bottom-0 opacity-50 z-1"/> -->
     <div class="flex flex-row justify-center z-10">
         <!-- SKIN SELECTION -->
-        <div class="flex flex-col text-white gap-2 font-[Teko] text-2xl uppercase bg-slate-900/40 rounded-l-md">
+        <div class="flex flex-col text-white gap-2 text-2xl font-[Teko] uppercase bg-slate-900/40 rounded-l-md">
             <div v-if="skins.length>0" :class="`flex flex-row items-center justify-start min-w-[310px] cursor-pointer gap-2 bg-slate-800 border-b-4 border-b-rarity-1 rounded-l-md overflow-hidden ${selectedIndex == null ? selectedCol : notSelectedCol}`" @click="handleSelect(null)">
                 <NuxtImg provider="cloudflare" :src="`/icon/${skins[0].hero_id}.webp`" draggable="false" class="w-[64px] h-[64px] z-10" loading="lazy"/>
                 <h3>{{"Base Skin"}}</h3>
@@ -56,14 +56,25 @@ handleUrlQuery();
             <NuxtImg v-if="selected" :src="`${runtime.public.cloudflare}/skins/fullbody/${selected.hero_id}${selected.skin_id}.webp`" width="684" height="684" draggable="false" class="w-full" loading="eager"/>
             <NuxtImg v-else  :src="`${runtime.public.cloudflare}/fullbody/${skins[0].hero_id}.webp`" width="684" height="684" draggable="false" class="w-full" loading="eager"/>
             <hr>
-            <div class="flex text-4xl font-[Teko] uppercase items-center px-4 mt-2">
+            <div class="flex text-4xl uppercase font-[Teko] items-center px-4 mt-2">
                 <NuxtImg v-if="selected" provider="cloudflare" :src="`/common/rarity${selected.rarity}.webp`"/>
                 <NuxtImg v-else provider="cloudflare" :src="`/common/rarity1.webp`"/>
                 <h1>{{ selected ? selected.skin_name : "Base Skin" }}</h1>
             </div>
-            <p class="px-4 py-2 font-[Nunito-sans] h-[5lh] overflow-y-scroll">{{ selected?.skin_desc }}</p>
-            <p class="px-4 py-2 font-[Nunito-sans] h-[2lh] overflow-y-scroll">{{ selected?.appearance }}</p>
+            <p class="my-2 px-4 py-2 h-[5lh] overflow-y-auto text-base">{{ selected?.skin_desc }}</p>
+            <p class="my-2 px-4 py-2 h-[2lh] overflow-y-auto text-base">{{ selected?.appearance }}</p>
         </div>
     </div>
 </div>
 </template>
+<style>
+p {
+    font-family: "Nunito Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100,
+        "YTLC" 500;
+}
+</style>

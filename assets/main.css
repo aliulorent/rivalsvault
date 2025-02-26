@@ -3,3 +3,7 @@ html, body, #__nuxt {
     width:100%;
     max-width: 100%
 }
+h1, h3 {
+    padding-top: 0.12em;
+    padding-bottom: 0;
+}

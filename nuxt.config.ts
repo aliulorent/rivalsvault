@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   googleFonts:{
     families:{
       "Nunito Sans": true,
-      Teko: [400],
+      Teko: true,
     }
   }, 
   nitro: {
@@ -45,6 +45,6 @@ export default defineNuxtConfig({
     "nitro-cloudflare-dev",
     "@nuxt/image",
     "@nuxtjs/tailwindcss",
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
   ]
 })

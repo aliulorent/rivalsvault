@@ -16,6 +16,3 @@ definePageMeta({
         <SkinSelect v-if="data && data.length>0" :skins="data"/>
     <!-- </div> -->
 </template>
-<style>
-
-</style>
