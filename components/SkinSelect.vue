@@ -31,9 +31,15 @@ const handleUrlQuery = ()=>{
         selectedIndex.value = urlIndex;
         selected.value = skins[urlIndex];
     }
+    else{
+        selectedIndex.value = null;
+        selected.value = null;
+    }
 }
-
 handleUrlQuery();
+watch(useRoute(), ()=>{
+    handleUrlQuery();
+})
 </script>
 <template>
 <div class="h-dvh pt-14 flex justify-center items-center relative select-none">

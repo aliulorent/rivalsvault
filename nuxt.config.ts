@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   css: ['~/assets/main.css'],
   runtimeConfig:{
     public:{
-      cloudflare: 'https://pub-7a06cbd97379439d8b7b3f390b203724.r2.dev'
+      cloudflare: 'https://cdn.rivalsvault.com'
     }
   },
   googleFonts:{
@@ -22,7 +22,7 @@ export default defineNuxtConfig({
   },
   image: {
     cloudflare: {
-      baseURL: 'https://pub-7a06cbd97379439d8b7b3f390b203724.r2.dev'
+      baseURL: 'https://cdn.rivalsvault.com'
     }
   },
   tailwindcss:{

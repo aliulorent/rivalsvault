@@ -19,7 +19,7 @@ const clickHandler = () =>{
 <style>
 #background{
     min-height:100%;
-    background-image: url('https://pub-7a06cbd97379439d8b7b3f390b203724.r2.dev/common/crystalbg.webp');
+    background-image: url('https://cdn.rivalsvault.com/common/crystalbg.webp');
     background-attachment: fixed;
     background-position: center; 
     background-size:cover;
