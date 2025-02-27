@@ -42,33 +42,31 @@ watch(useRoute(), ()=>{
 })
 </script>
 <template>
-<div class="h-dvh pt-14 flex justify-center items-center relative select-none">
-    <NuxtImg provider="cloudflare" :src="`/herobg/${skins[0].hero_id}.webp`" draggable="false" class="absolute bottom-0 left-0 h-full z-1"/>
-    <!-- <NuxtImg provider="cloudflare" :src="`/logo/${skins[0].hero_id}.webp`" draggable="false" class="absolute right-0 bottom-0 opacity-50 z-1"/> -->
-    <div class="flex flex-row justify-center z-10">
+<div id="container" class="flex justify-center items-center relative select-none">
+    <NuxtImg :src="`${runtime.public.cloudflare}/herobg/${skins[0].hero_id}.webp`" draggable="false" class="invisible sm:visible absolute bottom-0 left-0 h-full object-cover z-1"/>
+    <div class="flex flex-col-reverse sm:flex-row justify-center w-full h-full sm:h-auto sm:w-auto sm:max-h-full z-10 m-0 sm:m-4">
         <!-- SKIN SELECTION -->
-        <div class="flex flex-col text-white gap-2 text-2xl font-[Teko] uppercase bg-slate-900/40 rounded-l-md">
-            <div v-if="skins.length>0" :class="`flex flex-row items-center justify-start min-w-[310px] cursor-pointer gap-2 bg-slate-800 border-b-4 border-b-rarity-1 rounded-l-md overflow-hidden ${selectedIndex == null ? selectedCol : notSelectedCol}`" @click="handleSelect(null)">
-                <NuxtImg provider="cloudflare" :src="`/icon/${skins[0].hero_id}.webp`" draggable="false" class="w-[64px] h-[64px] z-10" loading="lazy"/>
+        <div class="flex flex-col basis-1/3 sm:basis-auto text-white gap-2 text-2xl sm:text-lg lg:text-2xl font-[Teko] uppercase bg-slate-900/40 w-full sm:w-[226px] lg:w-[310px] rounded-l-md overflow-y-auto">
+            <div v-if="skins.length>0" :class="`flex flex-row items-center justify-start cursor-pointer gap-2 bg-slate-800 border-b-4 border-b-rarity-1 rounded-l-md overflow-hidden sm:h-[48px] lg:h-[64px] flex-shrink-0 ${selectedIndex == null ? selectedCol : notSelectedCol}`" @click="handleSelect(null)">
+                <NuxtImg :src="`${runtime.public.cloudflare}/icon/${skins[0].hero_id}.webp`" draggable="false" width="64" height="64" class="w-[64px] h-[64px] sm:w-[48px] sm:h-[48px] lg:w-[64px] lg:h-[64px] z-10" loading="lazy"/>
                 <h3>{{"Base Skin"}}</h3>
             </div>
-            <div v-for="(skin, index) in skins" :class="`flex flex-row items-center justify-start pr-4 min-w-[310px] cursor-pointer gap-2 bg-slate-800 border-b-4 rounded-l-md overflow-hidden ${colorMap[skin.rarity]} ${index == selectedIndex ? selectedCol : notSelectedCol}`" @click="handleSelect(index)">
-                <NuxtImg provider="cloudflare" :src="`/skins/icon/${skin.hero_id}${skin.skin_id}.webp`" draggable="false" class="w-[64px] h-[64px] z-10" loading="lazy"/>
-                <h3>{{ skin.skin_name }}</h3>
+            <div v-for="(skin, index) in skins" :class="`flex flex-row items-center justify-start pr-4 cursor-pointer gap-2 bg-slate-800 border-b-4 rounded-l-md overflow-hidden sm:h-[48px] lg:h-[64px] flex-shrink-0 ${colorMap[skin.rarity]} ${index == selectedIndex ? selectedCol : notSelectedCol}`" @click="handleSelect(index)">
+                <NuxtImg :src="`${runtime.public.cloudflare}/skins/icon/${skin.hero_id}${skin.skin_id}.webp`" draggable="false" width="64" height="64" class="w-[64px] h-[64px] sm:w-[48px] sm:h-[48px] lg:w-[64px] lg:h-[64px] z-10" loading="lazy"/>
+                <h3 class="truncate">{{ skin.skin_name }}</h3>
             </div>
         </div>
         <!-- SELECTED SKIN -->
-        <div class="flex flex-col items-start bg-slate-800 text-white w-[50%] max-w-[684px] max-h-screen rounded-r-md z-20">
-            <NuxtImg v-if="selected" :src="`${runtime.public.cloudflare}/skins/fullbody/${selected.hero_id}${selected.skin_id}.webp`" width="684" height="684" draggable="false" class="w-full" loading="eager"/>
-            <NuxtImg v-else  :src="`${runtime.public.cloudflare}/fullbody/${skins[0].hero_id}.webp`" width="684" height="684" draggable="false" class="w-full" loading="eager"/>
-            <hr>
-            <div class="flex text-4xl uppercase font-[Teko] items-center px-4 mt-2">
-                <NuxtImg v-if="selected" provider="cloudflare" :src="`/common/rarity${selected.rarity}.webp`"/>
-                <NuxtImg v-else provider="cloudflare" :src="`/common/rarity1.webp`"/>
+        <div class="flex flex-col basis-2/3 sm:basis-auto items-start bg-slate-800 text-white h-full sm:h-auto w-full sm:w-[362px] lg:w-[424px] 2xl:w-[497px] rounded-r-md z-20 overflow-y-auto">
+            <NuxtImg v-if="selected" :src="`${runtime.public.cloudflare}/skins/fullbody/${selected.hero_id}${selected.skin_id}.webp`" width="684" height="684" draggable="false" class="self-center max-w-[370px] sm:max-w-full w-full" loading="eager"/>
+            <NuxtImg v-else  :src="`${runtime.public.cloudflare}/fullbody/${skins[0].hero_id}.webp`" width="684" height="684" draggable="false" class="self-center max-w-[370px] sm:max-w-full w-full" loading="eager"/>
+            <div class="flex truncate text-3xl sm:text-2xl lg:text-3xl 2xl:text-4xl uppercase font-[Teko] items-center px-4 mt-2 flex-shrink-0">
+                <NuxtImg v-if="selected" :src="`${runtime.public.cloudflare}/common/rarity${selected.rarity}.webp`" width="32" height="32" class="sm:w-[24px] lg:w-[28px] 2xl:w-[32px]"/>
+                <NuxtImg v-else :src="`${runtime.public.cloudflare}/common/rarity1.webp`" width="32" height="32" class="sm:w-[24px] lg:w-[28px] 2xl:w-[32px]"/>
                 <h1>{{ selected ? selected.skin_name : "Base Skin" }}</h1>
             </div>
-            <p class="my-2 px-4 py-2 h-[5lh] overflow-y-auto text-base">{{ selected?.skin_desc }}</p>
-            <p class="my-2 px-4 py-2 h-[2lh] overflow-y-auto text-base">{{ selected?.appearance }}</p>
+            <p class="mb-4 mt-2 mx-4 h-auto sm:h-[5lh] sm:text-xs lg:text-sm 2xl:text-base overflow-y-auto text-base flex-shrink-0">{{ selected?.skin_desc }}</p>
+            <p class="mt-4 mx-4 h-auto sm:h-[2lh] sm:text-xs lg:text-sm 2xl:text-base overflow-y-auto text-base flex-shrink-0">{{ selected?.appearance }}</p>
         </div>
     </div>
 </div>
@@ -82,5 +80,8 @@ p {
     font-variation-settings:
         "wdth" 100,
         "YTLC" 500;
+}
+#container{
+    height:calc(100dvh - 3.5rem)
 }
 </style>
