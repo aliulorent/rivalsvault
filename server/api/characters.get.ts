@@ -3,6 +3,6 @@ export default defineEventHandler(async (event)=>{
     const { results } = await DB.prepare(
         "SELECT * FROM characters ORDER BY hero_name ASC",
     )
-    .all();
+    .all<charactersQuery>();
     return results
 })

@@ -2,7 +2,7 @@
 import { NuxtImg } from '#components';
 const runtime = useRuntimeConfig();
 
-const { char } = defineProps(['char']);
+const { char } = defineProps<{char: charactersQuery}>();
 const goToHero = () =>{
     return navigateTo(`${char.slug}`)
 }

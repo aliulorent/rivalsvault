@@ -1,4 +1,4 @@
-export { skinsQuery }
+export { skinsQuery, charactersQuery }
 
 declare global {
     type skinsQuery = {
@@ -8,6 +8,11 @@ declare global {
         skin_desc: string;
         appearance: string;
         rarity: number;
+        hero_name: string;
+        slug: string;
+    }
+    type charactersQuery = {
+        hero_id: number;
         hero_name: string;
         slug: string;
     }
