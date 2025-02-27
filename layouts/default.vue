@@ -4,7 +4,7 @@ const clickHandler = () =>{
 }
 </script>
 <template>
-    <div id="navbar" class="w-full h-14 bg-slate-800 flex justify-between items-center text-white p-4 border-b-2 border-b-slate-950 sticky top-0 z-20">
+    <div id="navbar" class="w-full h-14 bg-slate-800 flex justify-between items-center text-white p-4 border-b-2 border-b-slate-950 fixed top-0 z-20">
         <div @click="clickHandler" class="flex gap-2 cursor-pointer">
             <div class="w-[64px]">
                 <NuxtImg provider="cloudflare" :src="`/common/rivalslogo.webp`"/>
@@ -12,7 +12,7 @@ const clickHandler = () =>{
             <h2 class="font-[Teko] font-[400] text-2xl">VAULT</h2>
         </div>
     </div>
-    <div id="background" class="overflow-auto">
+    <div id="background" class="overflow-auto pt-14">
         <slot />
     </div>
 </template>
