@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const runtime = useRuntimeConfig();
-const { skins } = defineProps(['skins']);
+const { skins } = defineProps<{skins: skinsQuery[]}>();
 const selected = ref();
 const selectedIndex = ref();
-const colorMap = {
+const colorMap: {[key :number]: string} = {
     1: 'border-b-[#b1c0c9]',
     2: 'border-b-[#75b1dd]',
     3: 'border-b-[#c784ff]',
@@ -25,9 +25,10 @@ const selectedCol = "bg-slate-800";
 const notSelectedCol = "bg-slate-900/50";
 
 const handleUrlQuery = ()=>{
-    const skinUrl = useRoute().query.skin;
+    const route = useRoute();
+    const skinUrl = route.query.skin as string;
     if(skinUrl){
-        const urlIndex = skins.findIndex(skin => skin.skin_id == skinUrl);
+        const urlIndex = skins.findIndex(skin => skin.skin_id == Number(skinUrl));
         selectedIndex.value = urlIndex;
         selected.value = skins[urlIndex];
     }

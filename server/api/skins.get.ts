@@ -5,7 +5,7 @@ export default defineEventHandler(async (event)=>{
         "SELECT * FROM skins s LEFT JOIN characters c ON s.hero_id = c.hero_id WHERE c.slug = ? ORDER BY rarity ASC",
     )
     .bind(query.slug)
-    .all();
+    .all<skinsQuery>();
     if(results.length < 1){
         return [];
     }
