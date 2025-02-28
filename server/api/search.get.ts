@@ -2,10 +2,11 @@ export default defineEventHandler(async (event)=>{
     const DB = event.context.cloudflare.env.DB;
     const query = getQuery(event);
     const { results } = await DB.prepare(
-        "SELECT * FROM skins s INNER JOIN characters c ON s.hero_id = c.hero_id WHERE c.slug = ? ORDER BY rarity ASC",
+        `SELECT s.skin_id, c.hero_id, s.skin_name, c.hero_name, c.slug FROM skins s INNER JOIN characters c ON s.hero_id = c.hero_id
+         WHERE skin_name LIKE ?`,
     )
-    .bind(query.slug)
-    .all<skinsQuery>();
+    .bind(`%${query.input}%`)
+    .all<searchQuery>();
     if(results.length < 1){
         return [];
     }

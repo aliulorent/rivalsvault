@@ -11,6 +11,9 @@ const clickHandler = () =>{
             </div>
             <h2 class="font-[Teko] font-[400] text-2xl">VAULT</h2>
         </div>
+        <div>
+            <SearchField/>
+        </div>
     </div>
     <div id="background" class="overflow-auto pt-14">
         <slot />

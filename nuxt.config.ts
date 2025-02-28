@@ -46,5 +46,6 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxtjs/tailwindcss",
     '@nuxtjs/google-fonts',
+    '@vueuse/nuxt'
   ]
 })
