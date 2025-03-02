@@ -22,7 +22,7 @@ const debouncedSearch = useDebounceFn(async ()=>{
     else{
         results.value = [];
     }
-}, 1000, { maxWait: 2000});
+}, 250, { maxWait: 1000});
 
 const handleClick = async (skin: searchQuery) =>{
     console.log("Navigated")
