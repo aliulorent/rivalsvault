@@ -48,10 +48,10 @@ onBeforeUnmount(() => {
 })
 </script>
 <template>
-    <div class="relative w-[360px] text-black font-[Teko] text-xl">
+    <div class="relative w-[300px] text-black font-[Teko] text-xl">
         <input id="searchBar" type="search" v-model="inputField" @focus="isFocused = true" placeholder="Search Skins" class="px-2 pt-1 rounded-md w-full">
         <div v-if="isLoading" class="absolute w-full top-full left-0 bg-white mt-2 rounded-md z-20">
-                <h3 class="px-2">Loading...</h3>
+            <h3 class="px-2">Loading...</h3>
         </div>
         <div id="searchResults" v-show="isFocused && results.length > 0" class="absolute w-full top-full left-0 bg-white flex flex-col overflow-y-auto max-h-48 mt-2 rounded-md z-20">
             <div v-for="result in results" class="flex-shrink-0 flex items-center hover:bg-gray-300 cursor-pointer" @click="handleClick(result)">
@@ -61,6 +61,3 @@ onBeforeUnmount(() => {
         </div>
     </div>
 </template>
-<style>
-
-</style>

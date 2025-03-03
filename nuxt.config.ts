@@ -41,11 +41,19 @@ export default defineNuxtConfig({
       }
     }
   },
+  scripts: {
+    registry: {
+      googleTagManager: {
+        id: 'GTM-PHNGSSJ3'
+      }
+    }
+  },
   modules: [
     "nitro-cloudflare-dev",
     "@nuxt/image",
     "@nuxtjs/tailwindcss",
     '@nuxtjs/google-fonts',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    '@nuxt/scripts'
   ]
 })
