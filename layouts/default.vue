@@ -21,7 +21,7 @@ const clickHandler = () =>{
 </template>
 <style>
 #background{
-    min-height:calc(100dvh - 3.5rem);
+    min-height:calc(100dvh);
     background-image: url('https://cdn.rivalsvault.com/common/crystalbg.webp');
     background-attachment: fixed;
     background-position: center; 

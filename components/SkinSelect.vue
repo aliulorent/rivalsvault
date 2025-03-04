@@ -39,8 +39,13 @@ const handleUrlQuery = ()=>{
     const skinUrl = route.query.skin as string;
     if(skinUrl){
         const urlIndex = skins.findIndex(skin => skin.skin_id == Number(skinUrl));
-        selectedIndex.value = urlIndex;
-        selected.value = skins[urlIndex];
+        if(urlIndex!=-1){
+            selectedIndex.value = urlIndex;
+            selected.value = skins[urlIndex];
+        }
+        else{
+            handleSelect(null);
+        }
     }
     else{
         selectedIndex.value = null;
@@ -97,5 +102,6 @@ p {
 }
 #container{
     height:calc(100dvh - 3.5rem)
+    /* height: 100dvh */
 }
 </style>
