@@ -14,11 +14,12 @@ const selectedCol = "bg-slate-800";
 const notSelectedCol = "bg-slate-900/50";
 
 useSeoMeta({
-    title: ()=>(selected.value ? `${selected.value?.skin_name} - ${selected.value.hero_name}` : skins[0].hero_name),
+    title: ()=>(selected.value ? `${selected.value?.skin_name} - ${selected.value.hero_name} Skin` : skins[0].hero_name),
     ogTitle: ()=>(selected.value ? `${selected.value?.skin_name} - ${selected.value.hero_name}` : skins[0].hero_name),
     description: ()=>(selected.value ? `Marvel Rivals ${selected.value.skin_name} skin for ${selected.value.hero_name} - ${selected.value?.skin_desc}` : `Browse skins for ${skins[0].hero_name} in Marvel Rivals!`),
     ogDescription: ()=>(selected.value ? `Marvel Rivals ${selected.value.skin_name} skin for ${selected.value.hero_name}!` : `Browse skins for ${skins[0].hero_name} in Marvel Rivals!`),
-    ogImage: ()=>(selected.value ? `${runtime.public.cloudflare}/skins/icon/${selected.value.hero_id}${selected.value.skin_id}.webp` : `${runtime.public.cloudflare}/icon/${skins[0].hero_id}.webp`)
+    ogImage: ()=>(selected.value ? `${runtime.public.cloudflare}/skins/icon/${selected.value.hero_id}${selected.value.skin_id}.webp` : `${runtime.public.cloudflare}/icon/${skins[0].hero_id}.webp`),
+    ogType:"profile"
 })
 
 const handleSelect = (index: number | null) =>{

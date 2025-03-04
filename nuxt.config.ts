@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     head:{
       titleTemplate: '%s %separator %siteName',
       templateParams:{
-        siteName:'Rivals Vault'
+        siteName:'Rivals Vault',
+        separator:'-'
       }
     }
   },
