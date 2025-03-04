@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const runtime = useRuntimeConfig();
 const { skins } = defineProps<{skins: skinsQuery[]}>();
-const selected = ref();
-const selectedIndex = ref();
+const selected = ref<skinsQuery | null>();
+const selectedIndex = ref<number | null>();
 const colorMap: {[key :number]: string} = {
     1: 'border-b-[#b1c0c9]',
     2: 'border-b-[#75b1dd]',
@@ -10,6 +10,17 @@ const colorMap: {[key :number]: string} = {
     4: 'border-b-[#f6a638]',
     5: 'border-b-[#f65a50]'
 }
+const selectedCol = "bg-slate-800";
+const notSelectedCol = "bg-slate-900/50";
+
+useSeoMeta({
+    title: ()=>(selected.value ? `${selected.value?.skin_name} - ${selected.value.hero_name}` : skins[0].hero_name),
+    ogTitle: ()=>(selected.value ? `${selected.value?.skin_name} - ${selected.value.hero_name}` : skins[0].hero_name),
+    description: ()=>(selected.value ? `Marvel Rivals ${selected.value.skin_name} skin for ${selected.value.hero_name} - ${selected.value?.skin_desc}` : `Browse skins for ${skins[0].hero_name} in Marvel Rivals!`),
+    ogDescription: ()=>(selected.value ? `Marvel Rivals ${selected.value.skin_name} skin for ${selected.value.hero_name}!` : `Browse skins for ${skins[0].hero_name} in Marvel Rivals!`),
+    ogImage: ()=>(selected.value ? `${runtime.public.cloudflare}/skins/icon/${selected.value.hero_id}${selected.value.skin_id}.webp` : `${runtime.public.cloudflare}/icon/${skins[0].hero_id}.webp`)
+})
+
 const handleSelect = (index: number | null) =>{
     if(index!=null){
         selected.value = skins[index];
@@ -21,8 +32,6 @@ const handleSelect = (index: number | null) =>{
     }
     selectedIndex.value = index;
 }
-const selectedCol = "bg-slate-800";
-const notSelectedCol = "bg-slate-900/50";
 
 const handleUrlQuery = ()=>{
     const route = useRoute();
@@ -37,10 +46,13 @@ const handleUrlQuery = ()=>{
         selected.value = null;
     }
 }
+
 handleUrlQuery();
+
 watch(useRoute(), ()=>{
     handleUrlQuery();
 })
+
 </script>
 <template>
 <div id="container" class="flex justify-center items-center relative select-none">

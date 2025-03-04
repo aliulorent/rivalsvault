@@ -3,6 +3,14 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: ['~/assets/main.css'],
+  app:{
+    head:{
+      titleTemplate: '%s %separator %siteName',
+      templateParams:{
+        siteName:'Rivals Vault'
+      }
+    }
+  },
   runtimeConfig:{
     public:{
       cloudflare: 'https://cdn.rivalsvault.com'
