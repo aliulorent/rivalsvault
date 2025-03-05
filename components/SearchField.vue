@@ -27,12 +27,6 @@ const debouncedSearch = useDebounceFn(async ()=>{
     }
 }, 250, { maxWait: 1000});
 
-const handleClick = async (skin: searchQuery) =>{
-    console.log("Navigated")
-    await navigateTo(`${skin.slug}?skin=${skin.skin_id}`)
-    isFocused.value = false;
-}
-
 const handleClickOutside = (event: MouseEvent) => {
   const searchBar = document.getElementById("searchBar")
   const searchResults = document.getElementById("searchResults")
