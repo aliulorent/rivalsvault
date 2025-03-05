@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const runtime = useRuntimeConfig();
 const inputField = ref<string>("");
-const results = ref<searchQuery[]>([]);
+const skinResults = ref<searchQuery[]>([]);
+const heroResults = ref<charactersQuery[]>([]);
 const isFocused = ref<boolean>(false);
 const isLoading = ref<boolean>(false);
 watch(inputField, ()=>{
@@ -16,11 +17,13 @@ const debouncedSearch = useDebounceFn(async ()=>{
                 input: inputField.value
             }
         })
-        results.value = data;
+        skinResults.value = data.skins;
+        heroResults.value = data.heroes;
         isLoading.value = false;
     }
     else{
-        results.value = [];
+        skinResults.value = [];
+        heroResults.value = [];
     }
 }, 250, { maxWait: 1000});
 
@@ -53,11 +56,15 @@ onBeforeUnmount(() => {
         <div v-if="isLoading" class="absolute w-full top-full left-0 bg-white mt-2 rounded-md z-20">
             <h3 class="px-2">Loading...</h3>
         </div>
-        <div id="searchResults" v-show="isFocused && results.length > 0" class="absolute w-full top-full left-0 bg-white flex flex-col overflow-y-auto max-h-48 mt-2 rounded-md z-20">
-            <div v-for="result in results" class="flex-shrink-0 flex items-center hover:bg-gray-300 cursor-pointer" @click="handleClick(result)">
-                <NuxtImg :src="`${runtime.public.cloudflare}/skins/icon/${result.hero_id}${result.skin_id}.webp`" draggable="false" width="64" height="64" class="w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px] z-10" loading="lazy"/>
-                <h3 class="truncate uppercase pl-1">{{ result.skin_name }}</h3>
-            </div>
+        <div id="searchResults" v-show="isFocused && (skinResults.length > 0 || heroResults.length > 0)" class="absolute w-full top-full left-0 bg-white flex flex-col overflow-y-auto mt-2 rounded-md z-20">
+            <NuxtLink v-for="heroResult in heroResults" class="flex-shrink-0 flex items-center hover:bg-gray-300 cursor-pointer" :to="`${heroResult.slug}`">
+                <NuxtImg :src="`${runtime.public.cloudflare}/icon/${heroResult.hero_id}.webp`" draggable="false" width="64" height="64" class="w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px] z-10" loading="lazy"/>
+                <h3 class="truncate uppercase pl-1">{{ heroResult.hero_name }}</h3>
+            </NuxtLink>
+            <NuxtLink v-for="skinResult in skinResults" class="flex-shrink-0 flex items-center hover:bg-gray-300 cursor-pointer" :to="`${skinResult.slug}?skin=${skinResult.skin_id}`">
+                <NuxtImg :src="`${runtime.public.cloudflare}/skins/icon/${skinResult.hero_id}${skinResult.skin_id}.webp`" draggable="false" width="64" height="64" class="w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px] z-10" loading="lazy"/>
+                <h3 class="truncate uppercase pl-1">{{ skinResult.skin_name }}</h3>
+            </NuxtLink>
         </div>
     </div>
 </template>
