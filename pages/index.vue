@@ -5,10 +5,10 @@ const {data} = await useFetch('/api/characters',{
 })
 
 useSeoMeta({
-    title: "Browse Skins",
-    ogTitle: "Browse Skins",
-    description: "Browse Hero Skins for Marvel Rivals!",
-    ogDescription: "Browse Hero Skins for Marvel Rivals!",
+    title: "Browse Marvel Rivals Skins",
+    ogTitle: "Browse Marvel Rivals Skins",
+    description: "Browse all Hero Skins for Marvel Rivals!",
+    ogDescription: "Browse all Hero Skins for Marvel Rivals!",
     ogType:"website",
 })
 
