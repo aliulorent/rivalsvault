@@ -85,7 +85,7 @@ watch(useRoute(), ()=>{
                 <h1>{{ selected ? selected.skin_name : "Base Skin" }}</h1>
             </div>
             <p class="mb-4 mt-2 mx-4 h-auto sm:h-[5lh] sm:text-xs lg:text-sm 2xl:text-base overflow-y-auto text-base flex-shrink-0">{{ selected?.skin_desc }}</p>
-            <p class="mt-4 mx-4 h-auto sm:h-[2lh] sm:text-xs lg:text-sm 2xl:text-base overflow-y-auto text-base flex-shrink-0">{{ selected?.appearance }}</p>
+            <p class="mt-4 mb-2 mx-4 h-auto sm:h-[2lh] sm:text-xs lg:text-sm 2xl:text-base overflow-y-auto text-base flex-shrink-0">{{ selected?.appearance }}</p>
         </div>
     </div>
 </div>
