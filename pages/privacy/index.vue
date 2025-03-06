@@ -1,5 +1,5 @@
 <template>
-<div id="privacy-container" class="z-20 text-white p-4 px-8">
+<div id="privacy-container" class="z-20 text-text-50 p-4 px-8">
     <h1>Privacy Policy</h1>
     <p><strong>Effective Date: March 2025</strong></p>
 
