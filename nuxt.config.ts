@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/main.css'],
   routeRules:{
-    '/**': { swr: 3600 }
+    // '/**': { swr: 3600 }
   },
   app:{
     head:{

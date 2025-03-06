@@ -101,7 +101,6 @@ p {
         "YTLC" 500;
 }
 #container{
-    height:calc(100dvh - 3.5rem)
-    /* height: 100dvh */
+    height:calc(100dvh - 6.5rem)
 }
 </style>
