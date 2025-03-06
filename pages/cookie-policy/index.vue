@@ -1,5 +1,5 @@
 <template>
-    <div id="cookie-container" class="z-20 text-text-50 p-4 px-8">
+    <div id="cookie-container" class="z-20 text-text-50 p-4 px-8 box-border">
       <h1>Cookie Policy</h1>
       <p><strong>Effective Date: March 2025</strong></p>
   
