@@ -1,5 +1,5 @@
 <template>
-    <div id="cookies-container" class="z-20 text-text-50 p-4 px-8">
+    <div id="cookie-container" class="z-20 text-text-50 p-4 px-8">
       <h1>Cookie Policy</h1>
       <p><strong>Effective Date: March 2025</strong></p>
   
@@ -63,7 +63,7 @@ h1, h2, h3, li, ul, p {
         "wdth" 100,
         "YTLC" 500;
 }
-#cookies-container{
+#cookie-container{
   min-height: calc(100dvh - 5.5rem);
 }
 </style>
