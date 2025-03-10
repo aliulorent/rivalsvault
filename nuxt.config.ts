@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   css: ['~/assets/main.css'],
   routeRules:{
     // '/**': { swr: 3600 }
+    '/': {redirect: '/skins'}
   },
   app:{
     head:{

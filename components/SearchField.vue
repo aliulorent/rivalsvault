@@ -28,11 +28,11 @@ const debouncedSearch = useDebounceFn(async ()=>{
 }, 250, { maxWait: 1000});
 
 const handleClickSkin = async (skin: searchQuery) =>{
-    await navigateTo(`${skin.slug}?skin=${skin.skin_id}`)
+    await navigateTo(`/skins/${skin.slug}?skin=${skin.skin_id}`)
     isFocused.value = false;
 }
 const handleClickHero = async (hero: charactersQuery) =>{
-    await navigateTo(`${hero.slug}`)
+    await navigateTo(`/skins/${hero.slug}`)
     isFocused.value = false;
 }
 

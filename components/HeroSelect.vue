@@ -7,7 +7,7 @@ const { char } = defineProps<{char: charactersQuery}>();
 </script>
 <template>
     <!-- CHARACTER BANNER FOR EACH HERO. MOST PICTURES ARE ABSOLUTE POSITIONING -->
-    <NuxtLink :to="`${char.slug}`" class="hero-container relative w-[244px] h-[440px] overflow-hidden p-0 m-4 cursor-pointer">
+    <NuxtLink :to="`/skins/${char.slug}`" class="hero-container relative w-[244px] h-[440px] overflow-hidden p-0 m-4 cursor-pointer">
         <h3 class="hero-name absolute bottom-16 left-3 z-40 text-center font-[Teko] text-text-50 text-3xl">{{ char.hero_name }}</h3>
         <div class="text-shadow absolute bottom-0 z-30 w-[244px] h-[112px] -mb-[2px] bg-background-900/90"></div>
         <!-- <NuxtImg :src="`${runtime.public.cloudflare}/common/bannershadow.webp`" loading="lazy" draggable="false" width="244" height="184" class="text-shadow absolute bottom-0 z-30 w-[244px] h-[184px] -mb-[2px]"/> -->
