@@ -43,12 +43,12 @@ const declineCookies = () => {
 
 </script>
 <template>
-    <div v-if="!consentClosed" class="cookie-consent fixed bottom-16 right-2 p-4 bg-text-50 z-50 max-w-[360px] rounded-md border-2 border-background-900">
-      <div class="message">
+    <div v-if="!consentClosed" class="cookie-consent fixed bottom-16 right-2 p-4 bg-text-50 z-50 max-w-[360px] rounded-md border-2 border-background-900 text-xs sm:text-base">
+      <div class="">
         We use cookies to ensure you get the best experience on our website.
         <NuxtLink :to="`/privacy-policy`" class="text-primary-600 underline">Learn more</NuxtLink>
       </div>
-      <div class="buttons flex gap-2 mt-2 text-text-50">
+      <div class="flex gap-2 mt-2 text-text-50">
         <button @click="acceptCookies" class="bg-primary-600 p-2 rounded-md">Accept</button>
         <button @click="declineCookies" class="bg-secondary-600 p-2 rounded-md">Decline</button>
       </div>

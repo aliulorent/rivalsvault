@@ -54,7 +54,7 @@ onBeforeUnmount(() => {
 })
 </script>
 <template>
-    <div class="relative w-[300px] text-background-900 font-[Teko] text-xl">
+    <div class="relative w-[160px] sm:w-[200px] lg:w-[300px] text-background-900 font-[Teko] text-xl">
         <input id="searchBar" type="search" v-model="inputField" @focus="isFocused = true" placeholder="Search Skins" class="px-2 pt-1 rounded-md w-full">
         <div v-if="isLoading" class="absolute w-full top-full left-0 bg-text-50 mt-2 rounded-md z-20">
             <h3 class="px-2">Loading...</h3>
