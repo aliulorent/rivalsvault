@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const runtime = useRuntimeConfig();
+const modalVisibility = ref<boolean>(true);
 const clickHandler = async () =>{
     return await navigateTo("/");
 }
@@ -14,7 +15,8 @@ const clickHandler = async () =>{
         <SearchField/>
     </div>
     </div>
-    <div id="background" class="overflow-auto pt-14 bg-background-800">
+    <div id="background" class="overflow-auto pt-14 bg-background-800 relative">
+        <CookieConsent/>
         <slot />
         <div id="footer" class="h-12 p-4 flex justify-between items-center gap-4 bg-background-900 text-text-50 text-sm box-border">
         <p class="truncate">© 2025 NetEase Games. All rights reserved. Marvel Rivals and all related assets are the property of NetEase Games and/or their respective owners. Rivals Vault is not affiliated with NetEase Games or Marvel.</p>

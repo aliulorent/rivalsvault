@@ -24,7 +24,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig:{
     public:{
-      cloudflare: 'https://cdn.rivalsvault.com'
+      cloudflare: 'https://cdn.rivalsvault.com',
+      gtmId: 'GTM-PHNGSSJ3'
     }
   },
   googleFonts:{
@@ -122,13 +123,6 @@ export default defineNuxtConfig({
             },
           }
         }
-      }
-    }
-  },
-  scripts: {
-    registry: {
-      googleTagManager: {
-        id: 'GTM-PHNGSSJ3'
       }
     }
   },
