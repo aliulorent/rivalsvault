@@ -8,7 +8,7 @@ const clickHandler = async () =>{
 <template>
     <div id="navbar" class="w-full h-14 bg-background-900 flex justify-between items-center text-text-50 p-4 border-b-2 border-b-background-900 fixed top-0 z-20">
     <div @click="clickHandler" class="flex items-center gap-1 cursor-pointer flex-shrink-0">
-        <NuxtImg :src="`${runtime.public.cloudflare}/common/rivalsvaultlogosmall.webp`" width="256" height="256" class="w-[48px] h-[48px] flex-shrink-0"/>
+        <NuxtImg :src="`${runtime.public.cloudflare}/common/rivalsvaultlogosmall.webp`" alt="Rivals Vault Logo." width="256" height="256" class="w-[48px] h-[48px] flex-shrink-0"/>
         <h2 class="font-[Teko] font-[400] invisible sm:visible text-xl sm:text-3xl">Rivals <span class="text-secondary-500">Vault</span></h2>
     </div>
     <div>

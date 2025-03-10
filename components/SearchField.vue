@@ -61,11 +61,11 @@ onBeforeUnmount(() => {
         </div>
         <div id="searchResults" v-show="isFocused && (skinResults.length > 0 || heroResults.length > 0)" class="absolute w-full top-full left-0 bg-text-50 flex flex-col overflow-y-auto mt-2 rounded-md z-20">
             <div v-if="heroResults.length > 0" v-for="heroResult in heroResults" class="flex-shrink-0 flex items-center hover:bg-gray-300 cursor-pointer" @click="handleClickHero(heroResult)">
-                <NuxtImg :src="`${runtime.public.cloudflare}/icon/${heroResult.hero_id}.webp`" draggable="false" width="64" height="64" class="w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px] z-10" loading="lazy"/>
+                <NuxtImg :src="`${runtime.public.cloudflare}/icon/${heroResult.hero_id}.webp`" :alt="`Icon of ${heroResult.hero_name}.`" draggable="false" width="64" height="64" class="w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px] z-10" loading="lazy"/>
                 <h3 class="truncate uppercase pl-1">{{ heroResult.hero_name }}</h3>
             </div>
             <div v-if="skinResults.length > 0" v-for="skinResult in skinResults" class="flex-shrink-0 flex items-center hover:bg-gray-300 cursor-pointer" @click="handleClickSkin(skinResult)">
-                <NuxtImg :src="`${runtime.public.cloudflare}/skins/icon/${skinResult.hero_id}${skinResult.skin_id}.webp`" draggable="false" width="64" height="64" class="w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px] z-10" loading="lazy"/>
+                <NuxtImg :src="`${runtime.public.cloudflare}/skins/icon/${skinResult.hero_id}${skinResult.skin_id}.webp`" :alt="`Icon of ${skinResult.hero_name}'s ${skinResult.skin_name} skin.`" draggable="false" width="64" height="64" class="w-[24px] h-[24px] sm:w-[32px] sm:h-[32px] lg:w-[36px] lg:h-[36px] z-10" loading="lazy"/>
                 <h3 class="truncate uppercase pl-1">{{ skinResult.skin_name }}</h3>
             </div>
         </div>
