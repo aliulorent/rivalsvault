@@ -23,4 +23,10 @@ declare global {
         hero_name: string;
         slug: string;
     }
+    type CookieConsent = {
+        ad_user_data: 'granted' | 'denied',
+        ad_personalization: 'granted' | 'denied',
+        ad_storage: 'granted' | 'denied',
+        analytics_storage: 'granted' | 'denied',
+    }
 }
