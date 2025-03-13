@@ -59,6 +59,19 @@ const gtm = useScriptGoogleTagManager({
 
 const pushConsent = () =>{
   gtm.dataLayer.push(["consent", "update", userConsent.value])
+  // gtm.dataLayer.push(["consent", "update", {
+  //   ad_user_data: 'granted',
+  //   ad_personalization: 'granted',
+  //   ad_storage: 'granted',
+  //   analytics_storage: 'granted'
+  // }])
+  // gtm.dataLayer.push({
+  //   event: 'google_consent_mode_update',
+  //   ad_user_data: userConsent.value.ad_user_data,
+  //   ad_personalization: userConsent.value.ad_personalization,
+  //   ad_storage: userConsent.value.ad_storage,
+  //   analytics_storage: userConsent.value.analytics_storage
+  // })
 };
 
 const acceptAllCookies = () =>{
