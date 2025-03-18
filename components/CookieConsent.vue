@@ -26,7 +26,7 @@ const parseCookieConsent = () =>{
       consentClosed.value = false;
       return
     }
-    if('ad_user_data' in object && 'ad_personalization' in object && 'ad_storage' in object && 'analytics_storage' in object){
+    if(object && object.hasOwnProperty("ad_user_data") && object.hasOwnProperty("ad_personalization") && object.hasOwnProperty("ad_storage") && object.hasOwnProperty("analytics_storage")){
       userConsent.value = {
         ad_user_data: object.ad_user_data || 'denied',
         ad_personalization: object.ad_personalization || 'denied',
