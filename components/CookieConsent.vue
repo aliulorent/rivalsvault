@@ -15,17 +15,7 @@ const userConsent = ref<CookieConsent>({
 
 const parseCookieConsent = () =>{
   if(cookieConsent && cookieConsent.value){
-    let object;
-    try{
-      // object = JSON.parse(cookieConsent.value);
-      object = cookieConsent.value
-    }
-    catch(e){
-      // console.log(e);
-      cookieConsent.value = null;
-      consentClosed.value = false;
-      return
-    }
+    const object = cookieConsent.value;
     if(object && object.hasOwnProperty("ad_user_data") && object.hasOwnProperty("ad_personalization") && object.hasOwnProperty("ad_storage") && object.hasOwnProperty("analytics_storage")){
       userConsent.value = {
         ad_user_data: object.ad_user_data || 'denied',
@@ -34,6 +24,10 @@ const parseCookieConsent = () =>{
         analytics_storage: object.analytics_storage || 'denied'
       }
       consentClosed.value = true;
+    }
+    else{
+      cookieConsent.value = null;
+      consentClosed.value = false;
     }
   }
 }
