@@ -42,7 +42,7 @@ const setCookieConsent = ()=>{
   // cookieConsent.value = JSON.stringify(userConsent.value);
   cookieConsent.value = userConsent.value
 }
-let gtagReference: GTag;
+let gtagReference: any;
 const gtm = useScriptGoogleTagManager({
   id: runtime.public.gtmId,
   onBeforeGtmStart: ((gtag)=>{
@@ -105,12 +105,12 @@ const declineCookies = () => {
 
 </script>
 <template>
-    <div v-if="!consentClosed" class="cookie-consent fixed bottom-16 right-2 p-4 bg-text-50 z-50 max-w-[460px] rounded-md border-2 border-background-900 text-xs sm:text-base">
+    <div v-if="!consentClosed" class="cookie-consent fixed bottom-0 left-0 right-0 mx-auto p-1 px-2 bg-text-50 z-50 max-w-[420px] sm:max-w-[530px] rounded-md border-2 border-background-900 text-xs sm:text-sm">
       <div class="">
         We use cookies to ensure you get the best experience on our website.
         <NuxtLink :to="`/cookie-policy`" class="text-primary-600 underline">Learn more</NuxtLink>
       </div>
-      <div class="flex justify-between sm:text-xs">
+      <div class="flex justify-around gap-1 text-[0.6rem] sm:text-xs">
         <div class="flex items-center">
           <label for="userdata">Ad User Data</label>
           <input type="checkbox" id="userdata" v-model="adUserData"/>
@@ -128,7 +128,7 @@ const declineCookies = () => {
           <input type="checkbox" id="analytics" v-model="analyticsStorage"/>
         </div>
       </div>
-      <div class="flex gap-2 mt-2 text-text-50">
+      <div class="flex gap-2 mt-2 text-text-50 justify-center">
         <button @click="acceptAllCookies" class="bg-primary-600 p-2 rounded-md">Accept All</button>
         <button @click="acceptSelectedCookies" class="bg-primary-600 p-2 rounded-md">Accept Selected</button>
         <button @click="declineCookies" class="bg-secondary-600 p-2 rounded-md">Decline All</button>
