@@ -7,6 +7,10 @@ export default defineNuxtConfig({
     // '/**': { swr: 3600 }
     '/': {redirect: '/skins'}
   },
+  site:{
+    url:"https://www.rivalsvault.com",
+    name:"Rivals Vault"
+  },
   app:{
     head:{
       titleTemplate: '%s %separator %siteName',
@@ -39,7 +43,7 @@ export default defineNuxtConfig({
     preset: "cloudflare-pages",
     prerender:{
       autoSubfolderIndex: false
-    }
+    },
   },
   image: {
     cloudflare: {
@@ -127,12 +131,17 @@ export default defineNuxtConfig({
       }
     }
   },
+  sitemap:{
+    sources:["/api/__sitemap__/urls"]
+  },
   modules: [
     "nitro-cloudflare-dev",
     "@nuxt/image",
     "@nuxtjs/tailwindcss",
     '@nuxtjs/google-fonts',
     '@vueuse/nuxt',
-    '@nuxt/scripts'
+    '@nuxt/scripts',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ]
 })
